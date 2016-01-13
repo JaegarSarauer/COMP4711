@@ -7,8 +7,12 @@ $temp = 99;
 echo '<br/>my level is ' . $temp;
 
 
-$hoursworked = 100;
+$hoursworked = $_GET['hours'];
 $rate = 66;
-$total = $hoursworked * $rate;
-echo "</br>you owe me $" . $total;
+if ($hoursworked > 40) {
+    $total = $hoursworked * $rate * 1.5;
+} else {
+    $total = $hoursworked * $rate;
+}
+echo ($total > 0) ? "</br>you owe me $" . $total : "</br>You owe me nothing.";
 ?>
